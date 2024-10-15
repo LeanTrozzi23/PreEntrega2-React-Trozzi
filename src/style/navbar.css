@@ -1,0 +1,71 @@
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 81%;
+  padding: 20px 10px;
+  background-color: #ffc0cbac;
+  border: white solid 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+.div-cart {
+  width: 40px;
+  background-color: blueviolet;
+  border: white solid 2px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.cart-img {
+  width: 40px;
+}
+.div-cart:hover {
+  transform: scale(1.3);
+  transition: 0.2s;
+  background-color: blueviolet;
+  border: black solid 3px;
+  border-radius: 10px;
+}
+.navbar a {
+  text-decoration: none;
+  position: relative;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  margin-left: 40px;
+}
+.nav-ul {
+  list-style-type: none;
+}
+.nav-ul li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-right: 20px;
+}
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: 0.3s;
+}
+.navbar a:hover::before {
+  width: 100%;
+}
+.header {
+  .duki-imglogo {
+    width: 100px;
+    margin: 20px;
+    border-radius: 15px;
+    border: white 2px solid;
+  }
+}

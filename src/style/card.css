@@ -1,0 +1,29 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc0cbac;
+  width: 320px;
+  height: 450px;
+  border-radius: 15px;
+  border: white 2px solid;
+  margin: 30px;
+  color: black;
+  text-align: center;
+}
+.ropa {
+  width: 300px;
+  height: 250px;
+  opacity: 0.7;
+  border-radius: 15px;
+  margin: 10px;
+}
+.item-detalles {
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0.5rem;
+}

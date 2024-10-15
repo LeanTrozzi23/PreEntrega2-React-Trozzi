@@ -1,0 +1,17 @@
+body {
+  background-image: url(../assets/fondoblack.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.h1-loading {
+  text-align: center;
+  color: white;
+}
