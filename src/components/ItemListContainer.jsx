@@ -2,57 +2,47 @@ import React, { useEffect, useState } from "react";
 import products from "../assets/data.json";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import "../global/style.css";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 const ItemListContainer = () => {
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
 
   const { categoryId } = useParams();
 
   useEffect(() => {
-    const promise1 = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(products);
-      }, 2000);
-    });
-    try {
-      const getProducts = async () => {
-        setLoading(true);
-        const product = await promise1;
-        let productsFiltered;
-        console.log("Category ID:", categoryId);
+    (async () => {
+      try {
+        let productsFiltered = [];
+
         if (categoryId) {
-          productsFiltered = products.filter(
-            (product) =>
-              product.category.toLowerCase() === categoryId.toLowerCase()
+          const q = query(
+            collection(db, "products"),
+            where("category", "==", categoryId)
           );
+
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            productsFiltered.push({ id: doc.id, ...doc.data() });
+          });
         } else {
-          productsFiltered = products;
+          const querySnapshot = await getDocs(collection(db, "products"));
+          querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+            productsFiltered.push({ id: doc.id, ...doc.data() });
+          });
         }
-        console.log("Filtered Products:", productsFiltered);
-        setProduct(productsFiltered);
-        setLoading(false);
-      };
-      getProducts();
-    } catch (error) {
-      console.log(error);
-    }
+        setProducts(productsFiltered);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, [categoryId]);
 
-  useEffect(() => {
-    console.log("Este side effect se ejecuta en el montaje del componente");
-
-    return () => {
-      console.log("Aca se va a desmontar el componente!");
-    };
-  }, []);
-
-  return loading ? (
-    <h1 className="h1-loading">Cargando productos ...</h1>
-  ) : (
-    <ItemList products={product} />
-  );
+  return <ItemList products={products} />;
 };
 
 export default ItemListContainer;
