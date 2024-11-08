@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import products from "../assets/data.json";
+
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import "../global/style.css";
@@ -20,14 +20,10 @@ const ItemDetailContainer = () => {
           console.log("Document data:", docSnap.data());
           setProduct({ ...docSnap.data(), id });
         } else {
-          // docSnap.data() will be undefined in this case
           console.log("No such document!");
         }
       } catch (error) {}
     })();
-
-    /* const productFound = products.find(product => product.id === Number(id))
-      setProduct(productFound) */
   }, [id]);
 
   return product && <ItemDetail product={product} />;

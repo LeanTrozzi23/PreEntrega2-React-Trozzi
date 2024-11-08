@@ -18,13 +18,8 @@ const ItemDetail = ({ product }) => {
 
   return (
     <div className="card-container">
-      <img
-        src={product.image || "/assets/default-image.jpg"}
-        alt={product.title || "Producto sin título"}
-        className="product-image"
-      />
-
       <h1 className="product-title">{product.title}</h1>
+      <img src={product.image} alt={product.title} className="product-image" />
 
       <span className="product-description">
         {typeof product.description === "string"
