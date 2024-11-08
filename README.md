@@ -1,8 +1,16 @@
-# React + Vite
+Ecommerce "DUKI SHOP"
+Este es mi proyecto final del curso de React JS de CODERHOUSE. Opté por realizar una App de un Ecommerce de ropa inspirada en el cantante Duki.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Realización:
+Desarrollé el Front End de una applicación de e-commerce, utilizando React como herramienta base para crear las distintas piezas de la interfaz de usuario.
 
-Currently, two official plugins are available:
+Implementé los diferentes patrones y conceptos específicos de React, como el Virtual DOM y los hooks. Para la interacción entre las mismas, incorporé manejo de eventos, navegación entre componentes, y administración de datos globales.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Como herramienta de estilado utilicé CSS.
+
+Tecnologías empleadas:
+
+React JS
+Vite
+React Router Dom
+Firebase
